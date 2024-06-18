@@ -191,6 +191,10 @@ std::string DeviceBuffer::getBufferString() const {
 bool DeviceBuffer::enablePeerAcess(const DeviceBuffer &peerBuffer) {
     int canAccessPeer = 0;
     CU_ASSERT(cuDeviceCanAccessPeer(&canAccessPeer, getBufferIdx(), peerBuffer.getBufferIdx()));
+
+    // Log the output of peer access
+    
+    
     if (canAccessPeer) {
         CUresult res;
         CU_ASSERT(cuCtxSetCurrent(peerBuffer.getPrimaryCtx()));
