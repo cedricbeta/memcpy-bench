@@ -75,9 +75,9 @@ void measureBandwidth(size_t size, int iterations, int warmup, int gpuDevice, in
 }
 
 int main() {
-    const int numGPUs = 4;
+    const int numGPUs = 8;
     const int numNUMANodes = 2;
-    size_t size = 1024 * 1024; // 1 GB
+    size_t size = 1024 * 1024 * 1024; // 1 GB
     int iterations = 10;
     int warmup = 5;
 
