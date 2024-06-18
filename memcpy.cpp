@@ -194,7 +194,7 @@ bool DeviceBuffer::enablePeerAcess(const DeviceBuffer &peerBuffer) {
 
     // Log the output of peer access
     
-    
+
     if (canAccessPeer) {
         CUresult res;
         CU_ASSERT(cuCtxSetCurrent(peerBuffer.getPrimaryCtx()));
@@ -207,6 +207,12 @@ bool DeviceBuffer::enablePeerAcess(const DeviceBuffer &peerBuffer) {
         if (res != CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED)
             CU_ASSERT(res);
 
+        return true;
+    }
+    else
+    {
+        CU_ASSERT(cuCtxSetCurrent(peerBuffer.getPrimaryCtx()));
+        CU_ASSERT(cuCtxSetCurrent(getPrimaryCtx()));
         return true;
     }
     return false;
