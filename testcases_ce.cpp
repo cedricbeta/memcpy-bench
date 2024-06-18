@@ -102,7 +102,7 @@ void DeviceToDeviceReadCE::run(unsigned long long size, unsigned long long loopC
             DeviceBuffer peerBuffer(size, peerDeviceId);
 
             if (!srcBuffer.enablePeerAcess(peerBuffer)) {
-                // continue;
+                continue;
             }
 
             // swap src and peer nodes, but use srcBuffers (the copy's destination) context
@@ -128,7 +128,7 @@ void DeviceToDeviceWriteCE::run(unsigned long long size, unsigned long long loop
             DeviceBuffer peerBuffer(size, peerDeviceId);
 
             if (!srcBuffer.enablePeerAcess(peerBuffer)) {
-                // continue;
+                continue;
             }
 
             bandwidthValues.value(srcDeviceId, peerDeviceId) = memcpyInstance.doMemcpy(srcBuffer, peerBuffer);
