@@ -209,12 +209,12 @@ bool DeviceBuffer::enablePeerAcess(const DeviceBuffer &peerBuffer) {
 
         return true;
     }
-    else
-    {
-        CU_ASSERT(cuCtxSetCurrent(peerBuffer.getPrimaryCtx()));
-        CU_ASSERT(cuCtxSetCurrent(getPrimaryCtx()));
-        return true;
-    }
+    // else
+    // {
+    //     CU_ASSERT(cuCtxSetCurrent(peerBuffer.getPrimaryCtx()));
+    //     CU_ASSERT(cuCtxSetCurrent(getPrimaryCtx()));
+    //     return true;
+    // }
     return false;
 }
 
